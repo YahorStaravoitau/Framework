@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using TestFramework.TestingData;
 using OpenQA.Selenium;
+using System.Linq;
 
 namespace TestFramework
 {
@@ -25,9 +26,10 @@ namespace TestFramework
         {
             Journal journal = dictionary[name];
             page.NavigateHere($"{journal.Name}/");
+            string search = testdata.List.Where(e => e.Name == name).Select(e => e.Search.Text).Last();
 
-            page.SearchEnter(TestData.search);
-            page.SearchClick(TestData.search);
+            page.SearchEnter(search);
+            page.SearchClick(search);
 
             Assert.True(page.ResultsElement != null);
         }

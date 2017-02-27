@@ -11,11 +11,8 @@ namespace TestFramework
     {
         private string resultsLocator = $"//div[contains(@id,'results')]";
 
-        public new IWebDriver Driver { get; set; }
-
         public SearchResultsPage(IWebDriver driver) : base(driver)
         {
-            Driver = driver;
         }
 
         public IWebElement ResultsElement

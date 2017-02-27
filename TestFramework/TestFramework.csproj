@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestFramework</RootNamespace>
     <AssemblyName>TestFramework</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -28,6 +28,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -51,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml.Serialization" />
@@ -76,20 +80,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Serialization\Login.cs" />
+    <Compile Include="Serialization\Search.cs" />
+    <Compile Include="TestingData\Data.Designer.cs" />
     <Compile Include="PageObject\AdvancedSearchPage.cs" />
     <Compile Include="PageObject\LoginPage.cs" />
     <Compile Include="PageObject\PageObject.cs" />
     <Compile Include="PageObject\SearchResultsPage.cs" />
-    <Compile Include="TestingData\Data.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Data.resx</DependentUpon>
-    </Compile>
-    <Compile Include="TestingData\TestData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestData.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Serialization\Journal.cs" />
+    <Compile Include="TestingData\TestData.Designer.cs" />
     <Compile Include="Tests\AdvancedSearchTest.cs" />
     <Compile Include="Tests\InitClass.cs" />
     <Compile Include="Tests\JournalTest.cs" />
@@ -97,32 +96,26 @@
     <Compile Include="Tests\SearchTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Category.cs" />
+    <Compile Include="Serialization\Deserializer.cs" />
     <Compile Include="Util\Element.cs" />
     <Compile Include="Util\ExcelReader.cs" />
     <Compile Include="Util\Journal.cs" />
+    <Compile Include="Serialization\Journals.cs" />
     <Compile Include="Util\WebDriver.cs" />
     <Compile Include="Util\XMLReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="TestingData\Data.resx" />
+    <EmbeddedResource Include="TestingData\TestData.resx" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="..\packages\WebDriver.GeckoDriver.0.13.0\content\geckodriver.exe">
       <Link>geckodriver.exe</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestingData\JournalTestData.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TestingData\Data.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Data.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TestingData\TestData.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>TestData.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

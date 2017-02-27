@@ -3,6 +3,8 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using TestFramework.TestingData;
 using OpenQA.Selenium;
+using System.Linq;
+
 
 namespace TestFramework
 {
@@ -25,9 +27,11 @@ namespace TestFramework
         {
             Journal journal = dictionary[name];
             page.NavigateHere($"{journal.Name}/");
-
+            
             page.GoToLoginPage();
-            page.EnterData(TestData.username, TestData.password);
+            string password = testdata.List.Where(e => e.Name == name).Select(e => e.Login.Password).Last();
+            string username = testdata.List.Where(e => e.Name == name).Select(e => e.Login.Username).Last();
+            page.EnterData(username, password);
             page.ClickLogin();
             Assert.True(page.LogoutElement != null);
             Assert.True(page.userAccoutMenuElement != null);

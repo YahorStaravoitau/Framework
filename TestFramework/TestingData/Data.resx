@@ -127,7 +127,7 @@
     <value>chrome</value>
   </data>
   <data name="excelPath" xml:space="preserve">
-    <value>C:\Users\Yahor_Staravoitau\Documents\Visual Studio 2015\Projects\TestFramework\Batch.xlsx</value>
+    <value>C:\Users\Yahor_Staravoitau\Documents\Visual Studio 2015\Projects\Framework\Batch.xlsx</value>
   </data>
   <data name="title" xml:space="preserve">
     <value>Early-Life Obesity</value>
@@ -136,6 +136,6 @@
     <value>C:\Users\Yahor_Staravoitau\Documents\Visual Studio 2015\Projects\TestFramework\packages\Selenium.WebDriver.ChromeDriver.2.27.0\driver\</value>
   </data>
   <data name="xmlPath" xml:space="preserve">
-    <value>C:\Users\Yahor_Staravoitau\Documents\Visual Studio 2015\Projects\TestFramework\TestFramework\TestingData\JournalTestData.xml</value>
+    <value>C:\Users\Yahor_Staravoitau\Documents\Visual Studio 2015\Projects\Framework\TestFramework\bin\Debug\JournalTestData.xml</value>
   </data>
 </root>

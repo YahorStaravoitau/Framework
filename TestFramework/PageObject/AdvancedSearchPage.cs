@@ -18,11 +18,8 @@ namespace TestFramework
 
         private string searchAgainLocator = "//input[contains(@id,'searchAgain')]";
 
-        public new IWebDriver Driver { get; set; }
-
         public AdvancedSearchPage(IWebDriver driver) : base(driver)
         {
-            Driver = driver;
         }
 
         public List<IWebElement> ScopeElements

@@ -14,11 +14,8 @@ namespace TestFramework
         private string checkboxLocator = "//input[contains(@id,'chkRememberUsername')]";
         private string loginButtonLocator = "//input[contains(@id,'LoginButton')]";
 
-        public new IWebDriver Driver { get; set; }
-
         public LoginPage(IWebDriver driver) : base(driver)
         {
-            Driver = driver;
         }
 
         public IWebElement UsernameElement
